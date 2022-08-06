@@ -1,6 +1,8 @@
 package com.godigit.banking;
 
- class Salary{
+import java.util.Scanner;
+
+class Salary{
 	private double basicSalary;
 	private double hra;
 	private double da;
@@ -9,7 +11,7 @@ package com.godigit.banking;
 	private double netSalary;
 	private double ctc;
 	
-	// constructor for salary , we don't accept salary less than 1
+	
 	public Salary(double basicSalary)
 	{
 	     if(basicSalary<1)
@@ -24,13 +26,22 @@ package com.godigit.banking;
 	
 	public void calculation()  
     {
-       hra=(10/100)*basicSalary;
-       da=(10/100)*basicSalary;
+       hra=(10.0/100.0)*basicSalary;
+       da=(10.0/100.0)*basicSalary;
        grossSalary=basicSalary+hra+da;
-       pf=(10/100)*basicSalary;
+       pf=(10.0/100.0)*basicSalary;
        netSalary=grossSalary-pf;
-       ctc=grossSalary*12;     
+       ctc=grossSalary*12.0;     
     }
+	
+	public void show() {
+		System.out.println("(a).  HRA - "+hra);
+		System.out.println("(b).  DA - "+da);
+		System.out.println("(c).  Gross Salary - "+grossSalary);
+		System.out.println("(d).  PF - "+pf);
+		System.out.println("(e).  Net Salary - "+netSalary);
+		System.out.println("(f).  Annual Package - "+ctc);
+	}
 }
 public class SalaryIncomeCalculator {
     
@@ -38,9 +49,12 @@ public class SalaryIncomeCalculator {
 	
 	
 	public static void main(String[] args) {
-		
-
+		   Scanner sc=new Scanner(System.in);
+		   System.out.println("Enter the Basic Salary ---");
+		   double basicSalary=sc.nextDouble();
+           Salary s1=new Salary(basicSalary);
+           s1.calculation();
+           s1.show();
 	}
 
 }
-
