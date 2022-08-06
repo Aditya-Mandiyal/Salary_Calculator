@@ -53,8 +53,12 @@ public class SalaryIncomeCalculator {
 		   System.out.println("Enter the Basic Salary ---");
 		   double basicSalary=sc.nextDouble();
            Salary s1=new Salary(basicSalary);
+           if(basicSalary>1)
+           {
            s1.calculation();
            s1.show();
+           }
+
 	}
 
 }
